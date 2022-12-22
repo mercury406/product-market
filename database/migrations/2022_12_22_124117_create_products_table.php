@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,18 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignIdFor(Category::class)
+                ->cascaseOnUpdate()
+                ->nullOnDelete()
+                ->index();
+            $table->string('name');
+            $table->text('description');
+            $table->bigInteger('price');
+            $table->jsonb('price_off')
+                ->default(null)
+                ->nullable();
+            $table->softDeletesTz();
+            $table->timestampsTz();
         });
     }
 
