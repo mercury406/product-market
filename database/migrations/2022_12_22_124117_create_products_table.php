@@ -21,6 +21,7 @@ return new class extends Migration
                 ->nullOnDelete()
                 ->index();
             $table->string('name');
+            $table->string('slug');
             $table->text('description');
             $table->bigInteger('price');
             $table->jsonb('price_off')
