@@ -2,7 +2,7 @@
 
 namespace App\Repositores\Category\Contracts;
 
-interface CategoryRepositoryContract {
+interface CategoriesRepositoryContract {
     
     /**
      * Retrives all categories

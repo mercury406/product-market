@@ -3,11 +3,11 @@
 namespace App\Repositores\Category;
 
 use App\Models\Category;
-use App\Repositores\Category\Contracts\CategoryRepositoryContract;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\LazyCollection;
+use Illuminate\Database\Eloquent\Collection;
+use App\Repositores\Category\Contracts\CategoriesRepositoryContract;
 
-class PostgresCategoriesRepository implements CategoryRepositoryContract
+class PostgresCategoriesRepository implements CategoriesRepositoryContract
 {
     public function getCategories(): Collection|LazyCollection
     {
