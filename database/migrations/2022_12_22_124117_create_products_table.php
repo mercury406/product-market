@@ -26,9 +26,6 @@ return new class extends Migration
                 ->index();
             $table->text('description');
             $table->jsonb('price');
-            $table->jsonb('discount')
-                ->default(null)
-                ->nullable();
             $table->softDeletesTz();
             $table->timestampsTz();
         });
