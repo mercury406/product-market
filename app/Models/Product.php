@@ -23,6 +23,14 @@ class Product extends Model
         'category_id'
     ];
 
+    protected $hidden = [
+        'deleted_at'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime:d-m-Y H:i:s',
+        'updated_at' => 'datetime:d-m-Y H:i:s'
+    ];
 
     /**
      * Retrieves category of selected product

@@ -19,6 +19,15 @@ class Category extends Model
         'slug',
     ];
 
+    protected $hidden = [
+        'deleted_at'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime:d-m-Y H:i:s',
+        'updated_at' => 'datetime:d-m-Y H:i:s'
+    ];
+
     /**
      * Retrives products for current category
      * 

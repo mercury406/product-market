@@ -3,11 +3,11 @@
 namespace App\Repositores\Product;
 
 use App\Models\Product;
-use App\Repositores\Product\Contracts\ProductsRepositoryContract;
+use App\Repositories\Product\Contracts\ProductsRepositoryContract;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\LazyCollection;
 
-class PostgresProductsCategory implements ProductsRepositoryContract{
+class SQLProductsRepository implements ProductsRepositoryContract{
     
     public function getProducts(): Collection|LazyCollection
     {
