@@ -16,7 +16,7 @@ class CategoryController extends Controller
     {
         $this->repository = $repository;
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -24,17 +24,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return $this->repository->getCategories();
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('welcome', 
+            ['categories' => $this->repository->getCategories()]
+        );
     }
 
     /**
@@ -45,7 +37,7 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        // return $this->repository->createCategoryFromRequest();
     }
 
     /**
@@ -56,18 +48,9 @@ class CategoryController extends Controller
      */
     public function show(string $slug)
     {
-        return $this->repository->getCategoryBySlug($slug);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param string $slug
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(string $slug)
-    {
-        //
+        return view('welcome', 
+            ['categories' => $this->repository->getCategoryBySlug($slug)]
+        );
     }
 
     /**

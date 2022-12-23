@@ -196,6 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         App\Providers\DBServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
