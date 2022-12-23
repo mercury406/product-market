@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositores\Product\SQLProductsRepository;
+use App\Repositories\Product\SQLProductsRepository;
 use App\Repositories\Category\SQLCategoriesRepository;
 use App\Repositories\Product\Contracts\ProductsRepositoryContract;
 use App\Repositories\Category\Contracts\CategoriesRepositoryContract;
