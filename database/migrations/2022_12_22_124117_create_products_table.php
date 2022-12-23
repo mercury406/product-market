@@ -25,8 +25,8 @@ return new class extends Migration
                 ->unique()
                 ->index();
             $table->text('description');
-            $table->bigInteger('price');
-            $table->jsonb('price_off')
+            $table->jsonb('price');
+            $table->jsonb('discount')
                 ->default(null)
                 ->nullable();
             $table->softDeletesTz();
