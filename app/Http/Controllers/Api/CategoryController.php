@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Category;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\CategoryResource;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
 use App\Repositories\Category\Contracts\CategoriesRepositoryContract;
-
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class CategoryController extends Controller
 {
@@ -22,11 +24,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): JsonResource
     {
-        return view('welcome', 
-            ['categories' => $this->repository->getCategories()]
-        );
+        return CategoryResource::collection($this->repository->getCategories());
     }
 
     /**
@@ -44,13 +44,12 @@ class CategoryController extends Controller
      * Display the specified resource.
      *
      * @param string $slug
-     * @return \Illuminate\Http\Response
+     * @throws Exception
+     * @return \Illuminate\Http\Resources\Json\JsonResource
      */
-    public function show(string $slug)
+    public function show(string $slug): JsonResource
     {
-        return view('welcome', 
-            ['categories' => $this->repository->getCategoryBySlug($slug)]
-        );
+        return new CategoryResource($this->repository->getCategoryBySlug($slug));
     }
 
     /**

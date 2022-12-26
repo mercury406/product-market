@@ -1,12 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductResource;
+use App\Repositories\Product\Contracts\ProductsRepositoryContract;
 
 class ProductController extends Controller
 {
+
+    public function __construct(ProductsRepositoryContract $repository)
+    {
+        $this->repository = $repository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,12 +49,13 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param string $slug
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(string $slug)
     {
-        //
+        $product = $this->repository->getProductBySlug($slug);
+        return new ProductResource($product);
     }
 
     /**
