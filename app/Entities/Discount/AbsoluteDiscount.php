@@ -4,8 +4,8 @@ namespace App\Entities\Discount;
 
 use App\Entities\Price\Price;
 use App\Enums\DiscountType;
-use App\Entities\Traits\DiscountMethods;
-use App\Entities\Discount\Contract\DiscountContract;
+use App\Entities\Discount\Traits\DiscountMethods;
+use App\Entities\Discount\Contracts\DiscountContract;
 
 
 class AbsoluteDiscount implements DiscountContract

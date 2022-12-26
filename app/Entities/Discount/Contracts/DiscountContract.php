@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Entities\Discount\Contract;
+namespace App\Entities\Discount\Contracts;
 
 interface DiscountContract 
 {
