@@ -14,4 +14,11 @@ class SQLProductsRepository implements ProductsRepositoryContract{
         return Product::query()->lazyById();
     }
 
+    public function getProductBySlug(string $slug)
+    {
+        return Product::query()
+            ->whereSlug($slug)
+            ->firstOrFail();
+    }
+
 }
