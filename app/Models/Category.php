@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
@@ -14,9 +15,12 @@ class Category extends Model
     use Sluggable;
     use SoftDeletes;
 
+    public const IMG_FOLDER = 'categories';
+
     protected $fillable = [
         'name',
         'slug',
+        'logo'
     ];
 
     protected $hidden = [
@@ -50,5 +54,12 @@ class Category extends Model
                 'source' => 'name'
             ]
         ];
+    }
+    
+    public function logo(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => self::IMG_FOLDER . '/' . $value
+        );
     }
 }
