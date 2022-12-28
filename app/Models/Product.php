@@ -14,13 +14,16 @@ class Product extends Model
     use Sluggable;
     use SoftDeletes;
 
+    const IMG_FOLDER = 'products';
+
     protected $fillable = [
         'name',
         'slug',
         'description',
         'price',
         'discount',
-        'category_id'
+        'category_id',
+        'images'
     ];
 
     protected $hidden = [
@@ -29,7 +32,8 @@ class Product extends Model
 
     protected $casts = [
         'created_at' => 'datetime:d-m-Y H:i:s',
-        'updated_at' => 'datetime:d-m-Y H:i:s'
+        'updated_at' => 'datetime:d-m-Y H:i:s',
+        'images' => 'array'
     ];
 
     /**

@@ -59,7 +59,9 @@ class Category extends Model
     public function logo(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => self::IMG_FOLDER . '/' . $value
+            get: fn($value) => $value 
+                ? self::IMG_FOLDER . '/' . basename($value)
+                : null
         );
     }
 }
