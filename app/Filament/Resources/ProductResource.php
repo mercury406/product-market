@@ -25,8 +25,6 @@ class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
-
     protected static ?int $navigationSort = 2;
 
     public static function getModelLabel(): string

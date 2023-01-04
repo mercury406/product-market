@@ -10,6 +10,22 @@ return [
     'description' => 'Описание',
     'price' => 'Цена',
     'images' => 'Изображения',
-    'logo' => 'Логотип'
+    'logo' => 'Логотип',
+    'price' => 'Цена',
+    'quantity' => 'Количество',
+    'order_status' => 'Статус заказа',
+    'created_at' => 'Создан(-а)',
+    'updated_at' => 'Изменен(-а)',
+    'user' => 'Пользователь',
+    'order' => 'Заказ',
+    'orders' => 'Заказы',
+    'order_status.created' => 'Создан',
+    'order_status.paid' => 'Оплачен',
+    'order_status.proccessing' => 'В обработке',
+    'order_status.ready_to_delivery' => 'Готов к доставке',
+    'order_status.delivering' => 'Доставляется',
+    'order_status.done' => 'Выполнен',
+    'order_status.cancelledByUser' => 'Отменен пользователем',
+    'order_status.cancelledByAdmin' => 'Отменен администратором',
 
 ];

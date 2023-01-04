@@ -28,4 +28,28 @@ enum OrderStatus: int
       $len = count(self::values()) - 1;
       return self::values()[random_int(0, $len)];
    }
+
+   public static function toArray()
+   {
+      $statuses = [];
+      foreach (self::cases() as $value) {
+         $statuses[$value->value] = $value->name;
+      }
+      return $statuses;
+   }
+
+   public function label()
+   {
+      return match($this){
+         self::Created => __('custom.order_status.created'),
+         self::Paid => __('custom.order_status.paid'),
+         self::Proccessing => __('custom.order_status.proccessing'),
+         self::ReadyToDelivery => __('custom.order_status.ready_to_delivery'),
+         self::Delivering => __('custom.order_status.delivering'),
+         self::Done => __('custom.order_status.done'),
+         self::CancelledByUser => __('custom.order_status.cancelledByUser'),
+         self::CancelledByAdmin => __('custom.order_status.cancelledByAdmin')
+      };
+   }
+   
 }
