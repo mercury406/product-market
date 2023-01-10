@@ -25,6 +25,7 @@ return new class extends Migration
             $table->enum('status', OrderStatus::values());
             $table->softDeletesTz();
             $table->timestampsTz();
+            $table->index(['users', 'status']);
         });
     }
 
