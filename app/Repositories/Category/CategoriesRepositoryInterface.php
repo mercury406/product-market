@@ -1,10 +1,8 @@
 <?php 
 
-namespace App\Repositories\Category\Contracts;
+namespace App\Repositories\Category;
 
-use App\Models\Category;
-
-interface CategoriesRepositoryContract {
+interface CategoriesRepositoryInterface {
     
     /**
      * Retrives all categories

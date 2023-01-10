@@ -3,10 +3,13 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\Product\SQLProductsRepository;
-use App\Repositories\Category\SQLCategoriesRepository;
-use App\Repositories\Product\Contracts\ProductsRepositoryContract;
-use App\Repositories\Category\Contracts\CategoriesRepositoryContract;
+
+use App\Repositories\Order\OrderRepository;
+use App\Repositories\Product\ProductsRepository;
+use App\Repositories\Category\CategoriesRepository;
+use App\Repositories\Order\OrderRepositoryInterface;
+use App\Repositories\Product\ProductsRepositoryInterface;
+use App\Repositories\Category\CategoriesRepositoryInterface;
 
 class DBServiceProvider extends ServiceProvider
 {
@@ -17,8 +20,9 @@ class DBServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(CategoriesRepositoryContract::class, SQLCategoriesRepository::class);
-        $this->app->bind(ProductsRepositoryContract::class, SQLProductsRepository::class);
+        $this->app->bind(CategoriesRepositoryInterface::class, CategoriesRepository::class);
+        $this->app->bind(ProductsRepositoryInterface::class, ProductsRepository::class);
+        $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
     }
 
     /**

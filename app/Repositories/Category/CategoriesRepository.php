@@ -5,9 +5,8 @@ namespace App\Repositories\Category;
 use App\Models\Category;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Database\Eloquent\Collection;
-use App\Repositories\Category\Contracts\CategoriesRepositoryContract;
 
-class SQLCategoriesRepository implements CategoriesRepositoryContract
+class CategoriesRepository implements CategoriesRepositoryInterface
 {
     public function getCategories(): Collection|LazyCollection
     {

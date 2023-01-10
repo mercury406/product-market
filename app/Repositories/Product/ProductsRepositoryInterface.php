@@ -1,8 +1,8 @@
 <?php 
 
-namespace App\Repositories\Product\Contracts;
+namespace App\Repositories\Product;
 
-interface ProductsRepositoryContract {
+interface ProductsRepositoryInterface {
     
     /**
      * Retrives all products
